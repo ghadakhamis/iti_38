@@ -22,7 +22,9 @@
                     <form method="get" action="/posts/{{$post->id}}/edit" >
                         <input type="submit" value="Edit"/>                    
                     </form>
-                    <form method="delete" action="/posts/{{$post->id}}" >
+                    <form method="post" action="/posts/{{$post->id}}" >
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
                         <input type="submit" value="Delete"/>                    
                     </form>
                 </td>
