@@ -13,9 +13,10 @@ class PostsController extends Controller
             'posts'=>Post::all()
         ]);
     }
-    public function show($id){
-        return view ('posts/show',[
-            'post'=>Post::where('id',$id)
+    public function show(Post $post ){
+        return view ('posts.show',[
+            'post'=> $post
         ]); 
     }
+    
 }
