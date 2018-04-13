@@ -1,20 +1,23 @@
 @extends('layouts.master')
     @section('content')
-        <div>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary">  
             Post Info
-        </div><br/>
-        <div>
-           <span>Title: </span> <span>{{$post->title}} </span><br/>
-           <span>Description: </span> <span>{{$post->description}} </span><br/>
-        </div>
-        <br/>
-        <div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary">
+           <label>Title: </label> <p>{{$post->title}} </p>
+           <label>Description: </label> <p>{{$post->description}} </p>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary">  
             Post creator Info
-        </div><br/>
-        <div>
-           <span>Name: </span> <span>{{$post->user->name}} </span><br/>
-           <span>Email: </span> <span>{{$post->user->email}} </span><br/>
-           <span>Created at: </span> <span>{{$post->user->created_at}} </span><br/>
-        </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary">
+           <label>Name: </label> <p>{{$post->user->name}} </p>
+           <label>Email: </label> <p>{{$post->user->email}} </p>
+           <label>Created at: </label> <p>{{$post->user->created_at}} </p>
+        </li>
+    </ul>    
 
     @endsection 

@@ -1,9 +1,13 @@
 @extends('layouts.master')
     @section('content')
-        <form method="get" action="/posts/create">
-            <input type="submit" value="Add new"/><br/><br/>
-        </form>    
-        <table>
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form method="get" action="/posts/create">
+                <input type="submit" value="Add new" class="btn btn-success"/><br/><br/>
+            </form>
+        </div>       
+        </div>     
+        <table class="table">
             <tr>
                 <th>Number</th>
                 <th>Title</th>
@@ -19,17 +23,25 @@
                 <td>{{$post->user->name}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>
-                    <form method="get" action="/posts/{{$post->id}}">
-                        <input type="submit" value="View"/>
-                    </form>
-                    <form method="get" action="/posts/{{$post->id}}/edit" >
-                        <input type="submit" value="Edit"/>                    
-                    </form>
-                    <form method="post" action="/posts/{{$post->id}}" >
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                        <input type="submit" value="Delete"/>                    
-                    </form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="get" action="/posts/{{$post->id}}">
+                            <input type="submit" value="View" class="btn btn-info"/>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="get" action="/posts/{{$post->id}}/edit" >
+                            <input type="submit" value="Edit" class="btn btn-primary"/>                    
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <form method="post" action="/posts/{{$post->id}}" >
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <input type="submit" value="Delete"  class="btn btn-danger"/>                    
+                        </form>
+                    </div>
+                </div>
                 </td>
             <tr>
             @endforeach 

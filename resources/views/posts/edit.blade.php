@@ -2,18 +2,23 @@
     @section('content')
         <form method="post" action="/posts/{{$post->id}}">
            {{csrf_field()}}
-            <span>Title</span><br/><br/>
-            <input  type="text" name="title" value="{{$post->title}}"/><br/><br/>
-            <span>Description</span><br/><br/>
-            <input  type="text" name="description" value="{{$post->description}}"/><br/><br/>
-            <span>Post creators</span><br/><br/>
-            <select autocomplete="off" name="user_id" value="{{$post->user->id}}">
-                @foreach ($users as $user)
-              
-                    <option value="{{$user->id}}"  {{$post->user_id == $user->id ? 'selected' : '' }}>{{$user->name}}</option>
-                @endforeach
-            </select><br/><br/>
-            <input  type="submit" value="Update"/>    
+            <div class="form-group">
+                <label>Title</label>
+                <input  type="text" name="title" value="{{$post->title}}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" class="form-control" >{{$post->description}}</textarea>
+            </div>
+            <div class="form-group">         
+                <label>Post creators</label><br/><br/>
+                <select autocomplete="off" name="user_id" value="{{$post->user->id}}" class="form-control" >
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}"  {{$post->user_id == $user->id ? 'selected' : '' }}>{{$user->name}}</option>
+                    @endforeach
+                </select><br/><br/>
+            </div>    
+            <input  type="submit" value="Update" class="btn btn-info"/>    
         </form>    
 
 
