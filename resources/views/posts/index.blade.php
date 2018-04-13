@@ -15,7 +15,7 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->user->name}}</td>
                 <td>{{$post->created_at}}</td>
-                <td><a href="#"><input type="submit" vaule="View"/></a></td>
+                <td><form method="get" action="/posts/{{$post->id}}"><input type="submit" vaule="View"/></form></td>
             <tr>
             @endforeach 
         </table>   

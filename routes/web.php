@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/posts','PostsController@index');
+Route::get('/posts/{id}','PostsController@show');
