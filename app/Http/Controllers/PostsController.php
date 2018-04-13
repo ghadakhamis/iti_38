@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -18,5 +20,18 @@ class PostsController extends Controller
             'post'=> $post
         ]); 
     }
-    
+    public function edit(Post $post){
+        return view ('posts.edit',[
+            'post'=> $post,
+            'users' => User::all()
+        ]); 
+    }
+    public function update(Post $post,Request $request){
+        $post->update([
+            'title' =>$request->title,
+            'description' =>  $request->description,
+            'user_id' => $request->user_id
+        ]);
+        return redirect('/posts'); 
+    }
 }

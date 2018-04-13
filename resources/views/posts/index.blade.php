@@ -15,7 +15,17 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->user->name}}</td>
                 <td>{{$post->created_at}}</td>
-                <td><form method="get" action="/posts/{{$post->id}}"><input type="submit" vaule="View"/></form></td>
+                <td>
+                    <form method="get" action="/posts/{{$post->id}}">
+                        <input type="submit" value="View"/>
+                    </form>
+                    <form method="get" action="/posts/{{$post->id}}/edit" >
+                        <input type="submit" value="Edit"/>                    
+                    </form>
+                    <form method="delete" action="/posts/{{$post->id}}" >
+                        <input type="submit" value="Delete"/>                    
+                    </form>
+                </td>
             <tr>
             @endforeach 
         </table>   
