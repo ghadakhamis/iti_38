@@ -1,5 +1,8 @@
 @extends('layouts.master')
     @section('content')
+        <form method="get" action="/posts/create">
+            <input type="submit" value="Add new"/><br/><br/>
+        </form>    
         <table>
             <tr>
                 <th>Number</th>

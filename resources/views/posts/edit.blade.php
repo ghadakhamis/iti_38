@@ -7,9 +7,10 @@
             <span>Description</span><br/><br/>
             <input  type="text" name="description" value="{{$post->description}}"/><br/><br/>
             <span>Post creators</span><br/><br/>
-            <select name="user_id" value="{{$post->user->id}}">
+            <select autocomplete="off" name="user_id" value="{{$post->user->id}}">
                 @foreach ($users as $user)
-                    <option value="{{$user->id}}">{{$user->name}}</option>
+              
+                    <option value="{{$user->id}}"  {{$post->user_id == $user->id ? 'selected' : '' }}>{{$user->name}}</option>
                 @endforeach
             </select><br/><br/>
             <input  type="submit" value="Update"/>    

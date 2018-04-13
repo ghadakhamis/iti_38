@@ -38,4 +38,20 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/posts'); 
     }
+    public function create(){
+        return view ('posts.create',[
+            'users' => User::all()        
+        ]);
+    }
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        Post::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => $request->user_id
+        ]);
+        
+       return redirect('/posts'); 
+    }
 }
