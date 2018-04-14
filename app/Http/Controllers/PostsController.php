@@ -6,6 +6,9 @@ use App\Post;
 use App\User;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
+
 
 class PostsController extends Controller
 {
@@ -26,7 +29,7 @@ class PostsController extends Controller
             'users' => User::all()
         ]); 
     }
-    public function update(Post $post,Request $request){
+    public function update(Post $post,UpdatePostRequest $request){
         $post->update([
             'title' =>$request->title,
             'description' =>  $request->description,
@@ -43,9 +46,10 @@ class PostsController extends Controller
             'users' => User::all()        
         ]);
     }
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         // dd($request->all());
+        
         Post::create([
             'title' => $request->title,
             'description' => $request->description,

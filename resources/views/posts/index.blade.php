@@ -21,7 +21,7 @@
                 <td>{{$post->id}}</td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->user->name}}</td>
-                <td>{{$post->created_at}}</td>
+                <td>{{ \Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</td>
                 <td>
                 <div class="row">
                     <div class="col-md-4">
@@ -38,7 +38,7 @@
                         <form method="post" action="/posts/{{$post->id}}" >
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
-                            <input type="submit" value="Delete"  class="btn btn-danger"/>                    
+                            <input type="submit" value="Delete"   onclick="return confirm('are you sure')" class="btn btn-danger"/>                    
                         </form>
                     </div>
                 </div>

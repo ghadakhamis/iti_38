@@ -16,7 +16,7 @@
         <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-secondary">
            <label>Name: </label> <p>{{$post->user->name}} </p>
            <label>Email: </label> <p>{{$post->user->email}} </p>
-           <label>Created at: </label> <p>{{$post->user->created_at}} </p>
+           <label>Created at: </label> <p>{{\Carbon\Carbon::parse($post->user->created_at)->format('l jS \\of F Y h:i:s A')}} </p>
         </li>
     </ul>    
 
