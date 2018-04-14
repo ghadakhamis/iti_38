@@ -13,6 +13,7 @@
                 <th>Title</th>
                 <th>Posted by</th>
                 <th>Created at</th>
+                <th>Slug</th>
                 <th>Actions</th>
 
             </tr>
@@ -22,6 +23,7 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->user->name}}</td>
                 <td>{{ \Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</td>
+                <td>{{$post->slug}}</td>
                 <td>
                 <div class="row">
                     <div class="col-md-4">
@@ -45,5 +47,6 @@
                 </td>
             <tr>
             @endforeach 
-        </table>   
+        </table>  
+        {!! $posts->links() !!} 
     @endsection
