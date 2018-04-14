@@ -15,13 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/create','PostsController@create');
-Route::get('/posts','PostsController@index');
-Route::post('/posts','PostsController@store');
-Route::get('/posts/{post}','PostsController@show');
-Route::get('/posts/{post}/edit','PostsController@edit');
-Route::post('/posts/{post}','PostsController@update');
-Route::delete('/posts/{post}','PostsController@destroy');
+Route::get('/posts/create','PostsController@create')->middleware('auth');
+Route::get('/posts','PostsController@index')->middleware('auth');
+Route::post('/posts','PostsController@store')->middleware('auth');
+Route::get('/posts/{post}','PostsController@show')->middleware('auth');
+Route::get('/posts/{post}/edit','PostsController@edit')->middleware('auth');
+Route::post('/posts/{post}','PostsController@update')->middleware('auth');
+Route::delete('/posts/{post}','PostsController@destroy')->middleware('auth');
 
 
 
