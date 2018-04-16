@@ -22,7 +22,7 @@
                 <td>{{$post->id}}</td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->user->name}}</td>
-                <td>{{ \Carbon\Carbon::parse($post->created_at)->format('Y-m-d')}}</td>
+                <td>{{$post->data_form}}</td>
                 <td>{{$post->slug}}</td>
                 <td>
                 <div class="row">

@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * Get the user's created_at.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getDateFormAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('l jS \\of F Y h:i:s A');
+    }
 }

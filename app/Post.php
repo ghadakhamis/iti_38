@@ -34,4 +34,14 @@ class Post extends Model
             ]
         ];
     }
+    /**
+     * Get the post's created_at.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getDataFormAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('d-m-Y');
+    }
 }

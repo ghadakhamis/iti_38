@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\CustomPost;
 
 class StorePostRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|min:3|unique:posts',
             'description' => 'required|min:10',
-            'user_id' => 'required|exists:users,id'
+            'user_id' => ['required','exists:users,id',new CustomPost]
         ];
     }
 }
