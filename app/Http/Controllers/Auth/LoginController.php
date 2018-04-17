@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use App\SocialUser;
 
 class LoginController extends Controller
 {
@@ -55,7 +56,11 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('github')->user();
-
-         dd($user->id);
+        $usr=SoCialUser::firstOrNew([
+            'name' => $user->name,
+            'user_name' => $user->nickname,
+            'social_id' => $user->id,
+        ]);
+         dd($usr);
     }
 }
