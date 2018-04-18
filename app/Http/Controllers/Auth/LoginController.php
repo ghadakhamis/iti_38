@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\SocialUser;
+use Auth;
+
 
 class LoginController extends Controller
 {
@@ -61,6 +63,7 @@ class LoginController extends Controller
             'user_name' => $user->nickname,
             'social_id' => $user->id,
         ]);
-         dd($usr);
+        Auth::login($usr, true);
+        return redirect($this->redirectTo);
     }
 }
